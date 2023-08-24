@@ -177,7 +177,7 @@ nav ul li a:hover::after{
 }
 #skills h1{
     padding-bottom: 30px;
-    color: #30d5c8;
+    color: #b9941a;
 }
 #skills img{
     width: 10%;
@@ -195,7 +195,16 @@ nav ul li a:hover::after{
     typing 2s ,
     cursor .4s step-end infinite alternate;
 }
-
+.tools h1{
+    align-items: flex-end;
+}
+#skills p{
+    color: #30d5c8;
+    
+}
+#skills li{
+    color: #c64837;
+}
 /* cursor blinking*/
 @keyframes cursor{
     50%{ border-color: #30d5c8;}
