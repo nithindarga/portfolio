@@ -439,6 +439,7 @@ nav ul li a:hover::after{
 .contact-left{
     flex-basis: 35%;
 }
+
 .contact-right{
     flex-basis: 60%;
 }
@@ -826,6 +827,18 @@ nav .bx{
     .contact-left , .contact-right{
         flex-basis: 100%;
     }
+    .contact-left .sub-title  {
+        padding-top: 50px;
+        padding-left:90px ;
+    }
+    .contact-left p{
+        padding-left: 70px;
+    }
+    .contact-left .social-icons{
+        padding-left: 120px;
+    }
+
+
     .copyright{
         font-size: 14px;
         flex-basis: auto;
