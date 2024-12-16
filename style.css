@@ -736,6 +736,12 @@ nav .bx{
         width: 100%; /* Ensures the website spans the viewport width */
         overflow-x: hidden; /* Disable horizontal scrolling */
     }
+    nav .bx{
+        display: none;
+    }
+    #header  .bx-menu{
+        padding-left: 55%;
+    }
     #skills {
         display: flex;
         flex-direction: column; /* Stack sections vertically for small screens */
