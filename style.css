@@ -15,10 +15,20 @@
 html{
     scroll-behavior: smooth;
 }
-body{
+html, body{
     background: #080808;
     color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 #header{
     width: 100%;
     height: 100vh;
@@ -27,9 +37,29 @@ body{
     background-size: cover;
     background-position: center;
 }
+.gear-loader .header-text {
+    margin-top: 90px;
+    position:relative;
+    text-align: center;
+    line-height: 1.5;
+  }
+/*for small screen*/
+@media (max-width: 768px) {
+    .gear-loader {
+      margin-top: 30px; 
+    }
+  }  
 .container{
-    padding: 10px 10%;
+    /*padding: 10px 10%;*/
+    padding-top: 90px; 
+    padding-left: 10%;
+    padding-right: 10%;
 }
+@media (max-width: 768px) {
+    .container {
+      padding: 10px 5%;  /* Adjust padding for smaller devices */
+    }
+  }
 nav{
     /* position: fixed; */
     /* display: flex; */
@@ -47,7 +77,7 @@ nav{
    justify-content: space-between;
    /* background:#1f3535; */
    box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
-   padding: 0px 100px;
+   padding: 0 100px 0 0;
    transition: 0.5s;
 
    display: flex;
@@ -56,6 +86,7 @@ nav{
 }
 .logo{
     width: 90px;
+    margin-left: 0;
 }
 nav ul li{
     float: right;
@@ -90,11 +121,20 @@ nav ul li a:hover::after{
     font-size: 30px;
 }
 .header-text h1 {
-    font-size: 60px;
+    font-size: 50px;
     margin-top: 20px;
 }
 .header-text h1 span{
     color: #30d5c8;
+}
+.header-text p{
+    font-size: 30px;
+}
+.bracket{
+    color: #b9941a;
+}
+.header-text h1 .bracket{
+    color:#b9941a;
 }
 
 #about{
@@ -169,16 +209,114 @@ nav ul li a:hover::after{
 #skills{
     padding: 0 140px;
     display: flex;
+    flex-direction: row; /* Aligns sections side by side */
+    justify-content: space-between;
+
+
      
 }
-.skills-col-1{
-    flex-basis: 60%;
+.row1{
+    display: flex; /* Makes the children align side by side */
+    justify-content: space-between; 
+    /* flex-wrap: wrap; */
+    gap: 10px; 
+    /* width: 100%; */
+    /* width: 100%; */
+    
+}
+/*on mobile*/
+@media (max-width: 768px) {
+    .row1 {
+        /* display: flex;
+        justify-content: space-between;  */
+        flex-wrap: wrap; 
+        flex-direction: row; 
+    }
+
+    .skills-col-1, .skills-col-2 {
+        flex: 1 1 45%; 
+        min-width: 0;
+        max-width: 100%; 
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .skills-col-1 .lord-icon,
+    .skills-col-2 .lord-icon {
+        display: inline-block; 
+        font-size: 40px; 
+        margin-right: 10px; 
+        margin-bottom: 10px;
+    }
+    
+    /* .skills-col-1,
+    .skills-col-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+         
+        text-align: left;
+        padding: 10px;
+    } */
+    .skills-col-1 .icon-heading,
+    .skills-col-2 .icon-heading {
+        align-items: center;
+        justify-content: flex-start; 
+    }
+    /* .skills-col-2 .icon-heading {
+        display: flex;
+        align-items: center; 
+        justify-content: flex-start;
+    } */
+    /* Other styles for text alignment and appearance */
+    .skills-col-1 p, .skills-col-2 p {
+        font-size: 16px;
+        color: #ababab;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .skills-col-1 li, .skills-col-2 li {
+        font-size: 14px;
+        color: #c64837;
+        margin-bottom: 5px;
+    }
+}
+.skills-col-1, .skills-col-2 {
+    flex: 1; /* Ensures both blocks take equal space */
+    min-width: 0; 
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px; */
+}
+.skills-col-1 ul , .skills-col-2 ul{
+    padding-top: 25px;
+}
+/* icon and heading aligning*/
+.icon-heading {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    /* margin-top: 10px; */
+}
+
+
+.skill, .tools {
+    margin: 0; /* Removes default margin from the headings */
+    font-size: 1.5rem;
+    line-height: 1;
+    transform: translateY(15px);
+    display: inline-block; /* height around the text */
+}
+.skills-col-1 , .skills-col-2{
+    flex-basis: 50%;
 
 }
 
-.skills-col-1{
+/*.skills-col-1{
     padding-right: 50px;
-}
+}*/
 #skills h1{
     padding-bottom: 30px;
     color: #b9941a;
@@ -203,7 +341,7 @@ nav ul li a:hover::after{
     align-items: flex-end;
 }
 #skills p{
-    color: #30d5c8;
+    color:#ababab;
     
 }
 #skills li{
@@ -301,6 +439,7 @@ nav ul li a:hover::after{
 .contact-left{
     flex-basis: 35%;
 }
+
 .contact-right{
     flex-basis: 60%;
 }
@@ -351,7 +490,21 @@ form .btn2{
     padding: 14px 60px;
     font-size: 18px;
     margin-top: 20px;
-    cursor:pointer;   
+    cursor: pointer;   
+}
+.contact-right form .btn2 {
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid #30d5c8; /* Make sure it matches the Download CV button's border */
+    background:#080808; /* Consistent background */
+    box-shadow: 0 0 10px #30d5c8; /* Add this to match the glowing effect */
+}
+
+.contact-right form .btn2:hover {
+    background:#30d5c8;/* Keep the same background */
+    box-shadow: 0 0 10px #30d5c8; /* Glowing effect on hover */
 }
 .copyright{
     width: 100%;
@@ -574,23 +727,62 @@ code {
 }
 
 
-
 /* css for small screen */
 nav .bx{
     display: none;
 }
 @media only screen and (max-width: 600px){
+    html, body {
+        width: 100%; /* Ensures the website spans the viewport width */
+        overflow-x: hidden; /* Disable horizontal scrolling */
+    }
+    nav .bx{
+        display: none;
+    }
+    #header  .bx-menu{
+        padding-left: 80%;
+    }
+    #skills {
+        display: flex;
+        flex-direction: column; /* Stack sections vertically for small screens */
+        align-items: flex-start; /* Align to the left */
+        padding: 0 10px;
+        width: 100%; /* Add some padding for better spacing */
+    }
+    
+    .skills-col-1, .skills-col-2 {
+        width: 100%; /* Ensure columns take full width on small screens */
+        padding: 5px; /* Add some inner spacing */
+    }
+    #background-container {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden; /* No scrollbars for the background container */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
     #header{
         background-image:url(images/gear-loader.gif) ;
-    }
+        background-size: cover;  /* Ensure the image fills the background */
+        background-position: center;
+        height: 100vh;  /* Ensure the header section takes full height */
+        width: 100%; 
 
+        
+    }
+    
     .header-text{
         margin-top: 100%;
         font-size: 16px;
     }
     .header-text h1{
-        font-size: 30px;
+        font-size: 25px;
     }
+    .header-text p{
+        font-size: 15px;
+    }
+    
     nav .bx{
         display: block;
         font-size: 25px;
@@ -641,17 +833,59 @@ nav .bx{
     .contact-left , .contact-right{
         flex-basis: 100%;
     }
+    .contact-left .sub-title  {
+        padding-top: 50px;
+        padding-left:70px ;
+    }
+    .contact-left p{
+        padding-left: 55px;
+    }
+    .contact-left .social-icons{
+        padding-left: 90px;
+    }
+
+
     .copyright{
         font-size: 14px;
+        flex-basis: auto;
     }
 
     #skills{
-        display: block;
+        display: flex;
     }
     .skills-col-1 .skills-col-2{
         /* padding-left: 0; */
     }
 /* shld do skillssss */
+    #skills {
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ensures it spans the full width of the screen */
+        box-sizing: border-box;
+        margin-left: 30px;
+    }
+
+    .row1 {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+  /* Adjust individual columns */
+    .skills-col-1,
+    .skills-col-2 {
+        flex: 1 1 48%;
+        /* padding: 8px; */
+        box-sizing: border-box;
+    }
+    .skills-col-1 ul,
+    .skills-col-2 ul{
+        padding-top: 30px;
+    }
+
 
 }
 #msg {
